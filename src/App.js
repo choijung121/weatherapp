@@ -27,7 +27,16 @@ function App() {
 
   return (
     <div className="App">
-      <Page></Page>
+        <div className="project-title-div">
+            <h1 className="project-title">Weather Search</h1>   
+        </div>
+        <div className="nav-area">
+            <input type="text" className="text-box" placeholder="Search City"></input>
+            <button className="btn btn-primary">
+                Search
+            </button>
+        </div>
+        <Page></Page>
     </div>
   );
 }

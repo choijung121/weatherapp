@@ -1,6 +1,8 @@
-.project-title {
-    text-align: center;
+.container{
     align-items: center;
-    font-size: 40px;
-    padding-top: 1em;
+    justify-content: center;
+    border: 1px solid black;
+    margin: auto; 
+    margin-top: 5%; 
+    width: 30em;
 }
