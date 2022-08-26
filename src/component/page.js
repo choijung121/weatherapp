@@ -4,12 +4,7 @@ import './page.css'
 
 function Page(){
     return(
-        <div className="container">
-            <div className="card">
-                <p>Weather</p>
-            </div>
-
-        </div>
+        <div></div>
     );
 };
 
