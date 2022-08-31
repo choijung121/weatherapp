@@ -8,17 +8,18 @@ function App() {
   const [lat, setLat] = useState([]); /* setting latitude */
   const [long, setLong] = useState([]); /* setting longitude */
   const [data, setData] = useState([]);
+  // const [zip, setZip] = useState([]); /* trying set zip &zip=${zip}*/
   const [getInputData, setInputData] = useState(""); 
-  const [cityName, setSubmitData] = useState("")
+  const [state, setSubmitData] = useState(""); 
 
   useEffect(() => {
     const fetchData = async () => {
-      // navigator.geolocation.getCurrentPosition(function(position){
-      //   setLat(position.coords.latitude); 
-      //   setLong(position.coords.longitude); 
-      // }); 
+      navigator.geolocation.getCurrentPosition(function(position){
+        setLat(position.coords.latitude); 
+        setLong(position.coords.longitude); 
+      }); 
   
-      await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${cityName}&lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY}`)
+      await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(result => {
           setData(result)
@@ -26,10 +27,14 @@ function App() {
       })
       console.log("Latitude: ", lat); 
       console.log("Longitude: ", long); 
-      console.log("City Name:", cityName); 
+      console.log("City Name:", state); 
+      // console.log("Zip Code: ", state.zip);
+
+      // await fetch(`${process.env.REACT_APP_API_URL_GEO_CODE}q=${state}&APPID=${process.env.REACT_APP_API_KEY}`)
+      // try use this to qet city name, state, and country
     }
     fetchData(); 
-  }, [lat, long, cityName]); 
+  }, [lat, long, state]); 
 
   const inputHandler = (event) => {
     setInputData(event.target.value); 
