@@ -1,10 +1,56 @@
+*:focus {outline:none !important}
+
 .App {
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  display: inline;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.app-title {
+  text-align: center;
+  color: #0f0e17;
+}
+
+.input, .button {
+  text-align: center;
+}
+
+.search-box {
+  justify-content: center;
+  display: flex;
+}
+
+.form-control {
+  width: 140px;
+  padding: 10px;
+  border:none;
+  background-color: #e3f6f5;
+  color: #272343; 
+  font-weight: 600;
+  width:100%;
+}
+
+.btn:hover {
+  background-color: rgb(247, 234, 57);
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  background-color: #ffd803;
+  color: #272343; 
+  font-weight: 600;
+  width:100%;
+  transition: .3s background-color;
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: no-preference) {

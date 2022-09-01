@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from "moment";
 import './weather.css';
 
 const KelvinToFahrenheit = (k) => {
@@ -8,22 +9,28 @@ const KelvinToFahrenheit = (k) => {
 
 const CardExampleCard = ({weatherData}) => (
     <div className='card'>
-        <div>
+        <div className='header-container'>
             <div>
-                <h1 className="header">Weather in {weatherData.name}</h1>
+                <h1 className="header">
+                    
+                    <span className='city-name-color'>{weatherData.name}</span>
+                </h1>
+                <p className='time'>{moment().format('MMMM D, hh:mm A')}</p>
             </div>
             <div className='container'>
                 <div className='icon-image'>
                     <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}></img>
                 </div>
                 <div className='current-temp'>
-                    <p>{KelvinToFahrenheit(weatherData.main.temp)}&deg; F</p>
+                    {KelvinToFahrenheit(weatherData.main.temp)}&deg;F
                 </div>
             </div>
-            <div className='descriptions'>  
-                <p>{weatherData.weather[0].main}</p>
-                <p>H: {KelvinToFahrenheit(weatherData.main.temp_max)}&deg; F</p>
-                <p>L: {KelvinToFahrenheit(weatherData.main.temp_min)}&deg; F</p>
+        </div>
+        <div className='descriptions'>  
+            <p className='high-low-p'><strong>{weatherData.weather[0].main}</strong></p>
+            <div className='high-low'>
+                <p className='high-low-p'><strong>H:</strong> {KelvinToFahrenheit(weatherData.main.temp_max)}&deg;</p>
+                <p className='high-low-p'><strong>L:</strong> {KelvinToFahrenheit(weatherData.main.temp_min)}&deg;</p>
             </div>
         </div>
     </div>

@@ -2,21 +2,64 @@
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    margin: auto; 
-    margin-top: 5%; 
-    width: 30em;
+    width: auto;
     height: auto;
+    border-radius: 25px;
+    padding: 30px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+  }
+
+  .header-container {
+    display: inline; 
+  }
+
+  .header{
+    font-size: 27px;
+    margin: 0; 
+  }
+
+  .weather-today {
+    color: #272343;
+    font-size: 20px;
+  }
+  .city-name-color {
+    color: #2d334a;
+  }
+
+  .time{
+    margin: 0; 
+    align-items: left;
+    justify-content: left;
+    justify-items: left;
   }
   
   .container {
-    width: 100%;
-    display: grid; 
-    /* grid-template-columns: repeat(2, 1fr); */
-    grid-auto-rows: auto;
-    grid-gap: 1rem;
-    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .icon-image {
+    margin: 0;
   }
 
   .current-temp {
-    font-size: 3em;
+    font-size: 40px;
+  }
+
+  .high-low {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 0;
+  }
+
+  .high-low-p {
+    padding-left: 7px;
+    padding-right: 7px;
+    margin: 0; 
   }

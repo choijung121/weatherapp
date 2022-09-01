@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Weather from './component/weather';
-import moment from "moment";
 import './App.css';
 // import 'semantic-ui-css/semantic.min.css'
 
@@ -47,22 +46,27 @@ function App() {
 
   return (
     <div className="App">
-      <p>Day: {moment().format('dddd')}</p>
-      <p>Date: {moment().format('LL')}</p>
-      <p>Time: {moment().format("h:mm a")}</p>
-      <div className="input">
-        <input 
-          type="text"
-          id="location-name"
-          class="form-control"
-          placeholder="Enter City Name"
-          onChange={inputHandler}
-          value={getInputData}>
-        </input>
+      <div>
+        <h1 className="app-title">Weather App</h1>
       </div>
-      <button className="btn btn-primary mt-2" onClick={submitHandler}>
-        Search
-      </button>
+      <div className="search-box">
+        <div className="input">
+          <input 
+            type="text"
+            id="location-name"
+            class="form-control"
+            placeholder="Enter City Name"
+            onChange={inputHandler}
+            value={getInputData}>
+          </input>
+        </div>
+        <div className="button">
+          <button className="btn btn-primary mt-2" onClick={submitHandler}>
+            Search
+          </button>
+        </div>
+      </div>
+      
       {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
