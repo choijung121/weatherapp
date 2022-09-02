@@ -1,5 +1,11 @@
 *:focus {outline:none !important}
 
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src: url(https://example.com/material-symbols.woff) format('woff');
+}
+
 .App {
   margin-left: auto;
   margin-right: auto;

@@ -1,5 +1,8 @@
 import React from 'react';
-import moment from "moment";
+import {ReactComponent as ReactAir} from '../icons/air_FILL0_wght400_GRAD0_opsz24.svg';
+import {ReactComponent as ReactPressure} from '../icons/compress_FILL0_wght400_GRAD0_opsz24.svg'; 
+import {ReactComponent as ReactWater} from '../icons/water_drop_FILL0_wght400_GRAD0_opsz24.svg'; 
+import {ReactComponent as ReactCloud} from '../icons/filter_drama_FILL0_wght400_GRAD0_opsz24.svg'; 
 import './weather.css';
 
 const KelvinToFahrenheit = (k) => {
@@ -7,15 +10,52 @@ const KelvinToFahrenheit = (k) => {
     return Math.round(temperature);
 }
 
-const CardExampleCard = ({weatherData}) => (
+const meterToMiles = (u) => {
+    let unit = (u * 2.237); 
+    return Math.round(unit); 
+}
+
+const currentDate = (data) => {
+    const {timezone} = data; 
+    const {dt} = data; 
+    const dateTime = new Date(dt * 1000); 
+    const toUTC = dateTime.getTime() + dateTime.getTimezoneOffset() * 60000; 
+    const currentLocalTime = toUTC + 1000 * timezone; 
+    const selectedDate = new Date(currentLocalTime); 
+
+    const date = selectedDate.toLocaleString([], {
+        month: 'long', 
+        day: 'numeric'
+    }); 
+    return date; 
+}
+
+const currentTime = (data) => {
+    const {timezone} = data; 
+    const {dt} = data; 
+    const dateTime = new Date(dt * 1000); 
+    const toUTC = dateTime.getTime() + dateTime.getTimezoneOffset() * 60000; 
+    const currentLocalTime = toUTC + 1000 * timezone; 
+    const selectedDate = new Date(currentLocalTime); 
+
+    const time = selectedDate.toLocaleString([], {
+        hour: 'numeric', 
+        minute: '2-digit', 
+        hour12: true, 
+    });
+    return time; 
+}
+
+
+const Card = ({weatherData}) => (
     <div className='card'>
         <div className='header-container'>
             <div>
                 <h1 className="header">
                     
-                    <span className='city-name-color'>{weatherData.name}</span>
+                    <span className='city-name-color'>{weatherData.name}, {weatherData.sys.country}</span>
                 </h1>
-                <p className='time'>{moment().format('MMMM D, hh:mm A')}</p>
+                <p className='time'>{currentDate(weatherData)}, {currentTime(weatherData)}</p>
             </div>
             <div className='container'>
                 <div className='icon-image'>
@@ -30,14 +70,45 @@ const CardExampleCard = ({weatherData}) => (
                 <p className='feels-like-p'><strong>. Feels like {KelvinToFahrenheit(weatherData.main.feels_like)}&deg;F</strong></p>
             </div>
         </div>
-        <div className='descriptions'>  
-            
-            <div className='high-low'>
-                <p className='high-low-p'><strong>H:</strong> {KelvinToFahrenheit(weatherData.main.temp_max)}&deg;</p>
-                <p className='high-low-p'><strong>L:</strong> {KelvinToFahrenheit(weatherData.main.temp_min)}&deg;</p>
+        <div className='descriptions'> 
+            <div className='extra-info'>
+                <ul className='ul-extra-info'>
+                    <li className='il-extra-info'>
+                        <div className='il-icon-info'>
+                            <ReactWater/>&nbsp;
+                            <p className='il-info'><strong>Humidity</strong> 
+                                <span className='il-info-data'>{weatherData.main.humidity}%</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li className='il-extra-info'>
+                        <div className='il-icon-info'>
+                            <ReactPressure/>&nbsp;
+                            <li className='il-info'><strong>Pressure</strong> 
+                                <span className='il-info-data'>{weatherData.main.pressure} hPa</span>
+                            </li>
+                        </div>
+                    </li>
+                    <li className='il-extra-info'>
+                        <div className='il-icon-info'>
+                            <ReactAir/>&nbsp;
+                            <li className='il-info'><strong>Wind Speed</strong>
+                                <span className='il-info-data'>{meterToMiles(weatherData.wind.speed)} mph</span>
+                            </li>
+                        </div>
+                    </li>
+                    <li className='il-extra-info'>
+                        <div className='il-icon-info'>
+                            <ReactCloud/>&nbsp;
+                            <li className='il-info'><strong>Cloudiness</strong>
+                                <span className='il-info-data'>{weatherData.clouds.all}%</span>
+                            </li>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 )
 
-export default CardExampleCard;
+export default Card;

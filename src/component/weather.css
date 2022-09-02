@@ -1,3 +1,7 @@
+ul {
+  list-style-type: none;
+}
+
 .card{
     align-items: center;
     justify-content: center;
@@ -9,66 +13,97 @@
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 5%;
-  }
+}
 
-  .header-container {
-    display: inline; 
-  }
+.header-container {
+  display: inline; 
+}
 
-  .header{
-    font-size: 27px;
-    margin: 0; 
-  }
+.header{
+  font-size: 27px;
+  margin: 0; 
+}
 
-  .weather-today {
-    color: #272343;
-    font-size: 20px;
-  }
-  .city-name-color {
-    color: #2d334a;
-  }
+.weather-today {
+  color: #272343;
+  font-size: 20px;
+}
+.city-name-color {
+  color: #2d334a;
+}
 
-  .time{
-    margin: 0; 
-    align-items: left;
-    justify-content: left;
-    justify-items: left;
-  }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-  }
+.time{
+  margin: 0; 
+  align-items: left;
+  justify-content: left;
+  justify-items: left;
+}
 
-  .icon-image {
-    margin: 0;
-  }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
 
-  .current-temp {
-    font-size: 45px;
-    color: #2d334a;
-  }
+.icon-image {
+  margin: 0;
+}
 
-  .high-low {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    margin: 0;
-  }
+.current-temp {
+  font-size: 45px;
+  color: #2d334a;
+}
 
-  .feels-like {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    justify-items: center;
-    margin: 0; 
-    font-size: 23px;
-    color: #2d334a;
-  }
+.high-low {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin: 0;
+}
 
-  .feels-like-p{
-    margin: 0;
-  }
+.feels-like {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  margin: 0; 
+  font-size: 23px;
+  color: #2d334a;
+}
+
+.feels-like-p{
+  margin: 0;
+}
+
+.ul-extra-info {
+  display: flex;
+  padding: 0; 
+  margin: 0; 
+  margin-top: 2%;
+}
+
+.il-extra-info {
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.il-icon-info {
+  display: inline-block;
+  text-align: center;
+  margin: 0; 
+}
+
+.il-info {
+  display: inline-block;
+  margin: 0; 
+  padding:2px
+}
+
+.il-info-data {
+  display: inline-block;
+  font-size: 23px;
+  font-weight: bold;
+}

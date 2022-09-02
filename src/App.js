@@ -7,7 +7,7 @@ function App() {
   const [long, setLong] = useState([]); /* setting longitude */
   const [data, setData] = useState([]);
   const [getInputData, setInputData] = useState(""); 
-  const [state, setSubmitData] = useState(""); 
+  const [state, setSubmitData] = useState("Los Angeles"); 
 
   useEffect(() => {
     //fetch data for city, lat, and long
@@ -17,7 +17,7 @@ function App() {
         setLong(position.coords.longitude); 
       }); 
   
-      await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY}`)
+      await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY2}`)
         .then(response => response.json())
         .then(result => {
           setData(result)
