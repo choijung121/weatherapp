@@ -22,12 +22,16 @@ const CardExampleCard = ({weatherData}) => (
                     <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}></img>
                 </div>
                 <div className='current-temp'>
-                    {KelvinToFahrenheit(weatherData.main.temp)}&deg;F
+                    <strong>{KelvinToFahrenheit(weatherData.main.temp)}&deg;F</strong>
                 </div>
+            </div>
+            <div className='feels-like'>
+                <p className='feels-like-p'><strong>{weatherData.weather[0].main}</strong></p>
+                <p className='feels-like-p'><strong>. Feels like {KelvinToFahrenheit(weatherData.main.feels_like)}&deg;F</strong></p>
             </div>
         </div>
         <div className='descriptions'>  
-            <p className='high-low-p'><strong>{weatherData.weather[0].main}</strong></p>
+            
             <div className='high-low'>
                 <p className='high-low-p'><strong>H:</strong> {KelvinToFahrenheit(weatherData.main.temp_max)}&deg;</p>
                 <p className='high-low-p'><strong>L:</strong> {KelvinToFahrenheit(weatherData.main.temp_min)}&deg;</p>

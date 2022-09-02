@@ -47,7 +47,8 @@
   }
 
   .current-temp {
-    font-size: 40px;
+    font-size: 45px;
+    color: #2d334a;
   }
 
   .high-low {
@@ -58,8 +59,16 @@
     margin: 0;
   }
 
-  .high-low-p {
-    padding-left: 7px;
-    padding-right: 7px;
+  .feels-like {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
     margin: 0; 
+    font-size: 23px;
+    color: #2d334a;
+  }
+
+  .feels-like-p{
+    margin: 0;
   }
