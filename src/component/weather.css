@@ -9,10 +9,12 @@ ul {
     width: auto;
     height: auto;
     border-radius: 25px;
+    border: none; 
     padding: 30px;
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 5%;
+    background-color: #fffffe;
 }
 
 .header-container {
@@ -29,7 +31,7 @@ ul {
   font-size: 20px;
 }
 .city-name-color {
-  color: #2d334a;
+  color: #00214d;
 }
 
 .time{
@@ -46,13 +48,21 @@ ul {
   justify-items: center;
 }
 
+.weather-date{
+  color: #1b2d45; 
+}
+
+.weather-time{
+  color: #ff5470; 
+}
+
 .icon-image {
   margin: 0;
 }
 
 .current-temp {
   font-size: 45px;
-  color: #2d334a;
+  color: #00214d;
 }
 
 .high-low {
@@ -70,7 +80,7 @@ ul {
   justify-items: center;
   margin: 0; 
   font-size: 23px;
-  color: #2d334a;
+  color: #1b2d45;
 }
 
 .feels-like-p{
@@ -94,6 +104,7 @@ ul {
   display: inline-block;
   text-align: center;
   margin: 0; 
+  color: #1b2d45;
 }
 
 .il-info {

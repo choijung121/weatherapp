@@ -12,11 +12,6 @@ function App() {
   useEffect(() => {
     //fetch data for city, lat, and long
     const fetchData = async () => {
-      navigator.geolocation.getCurrentPosition(function(position){
-        setLat(position.coords.latitude); 
-        setLong(position.coords.longitude); 
-      }); 
-  
       await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY2}`)
         .then(response => response.json())
         .then(result => {
@@ -30,18 +25,31 @@ function App() {
     fetchData(); 
   }, [lat, long, state]); 
 
-  // useEffect(() => {
-  //   //fetch data for 5 day 3 hour forecast data
-  //   const fetchDaily = async () => {
-  //     await fetch(`${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY}`)
-  //       .then(response => response.json())
-  //       .then(result => {
-  //         setData(result)
-  //         console.log(result); 
-  //   }, [lat, long])
-  //  }
-  //  fetchDaily(); 
-  // })
+  useEffect((position) => {
+    const fetchCurrentLocation = async () => {
+      navigator.geolocation.getCurrentPosition(function(position){
+        setLat(position.coords.latitude); 
+        setLong(position.coords.longitude); 
+      }); 
+    }
+    fetchCurrentLocation(); 
+    console.log(position)
+  })
+
+  // const currentLocationHandler = () => {
+  //   if (!navigator.geolocation) {
+  //     setSubmitData('Geolocation is not supported by your browser');
+  //   } else {
+  //     setSubmitData('Locating...');
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       setSubmitData(null);
+  //       setLat(position.coords.latitude);
+  //       setLong(position.coords.longitude);
+  //     }, () => {
+  //       setSubmitData('Unable to retrieve your location');
+  //     });
+  //   }
+  // }
 
   const inputHandler = (event) => {
     setInputData(event.target.value); 
@@ -73,6 +81,13 @@ function App() {
             Search
           </button>
         </div>
+        {/* <div className="button">
+          <button onClick={currentLocationHandler}>Get Location</button>
+          <h1>Coordinates</h1>
+          <p>{state}</p>
+          {lat && <p>Latitude: {lat}</p>}
+          {long && <p>Longitude: {long}</p>}
+        </div> */}
       </div>
       
       {(typeof data.main != 'undefined') ? (

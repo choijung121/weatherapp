@@ -52,10 +52,11 @@ const Card = ({weatherData}) => (
         <div className='header-container'>
             <div>
                 <h1 className="header">
-                    
                     <span className='city-name-color'>{weatherData.name}, {weatherData.sys.country}</span>
                 </h1>
-                <p className='time'>{currentDate(weatherData)}, {currentTime(weatherData)}</p>
+                <p className='time'>
+                    <strong><span className='weather-date'>{currentDate(weatherData)}, </span><span className='weather-time'>{currentTime(weatherData)}</span></strong>
+                </p>
             </div>
             <div className='container'>
                 <div className='icon-image'>
