@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   // const [lat, setLat] = useState([]); /* setting latitude */
-  const [lat, setLat] = useState([]);
+  const [lat] = useState([]);
   // const [long, setLong] = useState([]); /* setting longitude */
-  const [long, setLong] = useState([]);
+  const [long] = useState([]);
   const [data, setData] = useState([]);
   const [getInputData, setInputData] = useState(""); 
   const [state, setSubmitData] = useState("Los Angeles"); 
