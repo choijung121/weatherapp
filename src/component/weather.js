@@ -60,7 +60,7 @@ const Card = ({weatherData}) => (
             </div>
             <div className='container'>
                 <div className='icon-image'>
-                    <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}></img>
+                    <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt='weather icon'></img>
                 </div>
                 <div className='current-temp'>
                     <strong>{KelvinToFahrenheit(weatherData.main.temp)}&deg;F</strong>
