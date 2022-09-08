@@ -25,16 +25,16 @@ function App() {
     fetchData(); 
   }, [lat, long, state]); 
 
-  useEffect((position) => {
-    const fetchCurrentLocation = async () => {
-      navigator.geolocation.getCurrentPosition(function(position){
-        setLat(position.coords.latitude); 
-        setLong(position.coords.longitude); 
-      }); 
-    }
-    fetchCurrentLocation(); 
-    console.log(position)
-  })
+  // useEffect((position) => {
+  //   const fetchCurrentLocation = async () => {
+  //     navigator.geolocation.getCurrentPosition(function(position){
+  //       setLat(position.coords.latitude); 
+  //       setLong(position.coords.longitude); 
+  //     }); 
+  //   }
+  //   fetchCurrentLocation(); 
+  //   console.log(position)
+  // })
 
   // const currentLocationHandler = () => {
   //   if (!navigator.geolocation) {
