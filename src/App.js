@@ -14,7 +14,9 @@ function App() {
   useEffect(() => {
     //fetch data for city, lat, and long
     const fetchData = async () => {
-      await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${process.env.REACT_APP_API_KEY2}`)
+      const apiKey = process.env.REACT_APP_API_KEY
+      const apiURL = process.env.REACT_APP_API_URL
+      await fetch(`${apiURL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${apiKey}`)
         .then(response => response.json())
         .then(result => {
           setData(result)
