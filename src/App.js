@@ -13,9 +13,8 @@ function App() {
     //fetch data for city, lat, and long
     const fetchData = async () => {
       const apiKey = process.env.REACT_APP_API_KEY
-      // const apiURL = process.env.REACT_APP_API_URL
-      // `${apiURL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${apiKey}`
-      await fetch(`https://api.openweathermap.org/data/2.5/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${apiKey}`)
+      const apiURL = process.env.REACT_APP_API_URL
+      await fetch(`${apiURL}/weather/?q=${state}&lat=${lat}&lon=${long}&APPID=${apiKey}`)
         .then(response => response.json())
         .then(result => {
           setData(result)
